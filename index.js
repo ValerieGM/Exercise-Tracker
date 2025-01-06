@@ -101,16 +101,16 @@ app.post('/api/users/:_id/exercises', async (req, res) => {
     console.log(log)
 
     let logDate = log.date.toDateString();
-    console.log(log)
+    console.log(log.date.toDateString())
 
     await log.save();
 
     res.status(200).json({
-      id: userId,
+      _id: userId._id,
       username: log.username,
-      description: log.description,
+      date: logDate,
       duration: log.duration,
-      date: logDate
+      description: log.description
     });
   } catch (err) {
     console.error(err);
